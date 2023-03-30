@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visitor Registration Form</title>
+</head>
+<body>
+    <h1>Thank you for visiting!</h1>
+    <p>Your details:</p>
+    <ul>
+        <li>Full Name: {{ full_name }}</li>
+        <li>Phone Number: {{ number }}</li>
+        <li>Purpose of Visit: {{ purpose }}</li>
+    </ul>
+    <audio controls autoplay>
+        <audio controls autoplay>
+            <source src="{{ url_for('static', filename='../static/' + full_name + '.mp3') }}" type="audio/mp3">
+            Your browser does not support the audio element.        
+    </audio>
+</body>
+</html>

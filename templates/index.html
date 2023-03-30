@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Visitor Registration Form</title>
+</head>
+<body>
+	<h1>Visitor Registration Form</h1>
+	<form method="POST" action="{{ url_for('submit') }}">
+		<label for="full_name">Full Name:</label>
+<input type="text" id="full_name" name="full_name" required><br><br>
+
+		<label for="phone">Phone Number:</label>
+		<input type="text" id="phone" name="number" required><br><br>
+		<label for="purpose">Purpose of Visit:</label>
+		<input type="text" id="purpose" name="purpose" required><br><br>
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html>
