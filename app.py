@@ -29,7 +29,7 @@ def submit():
 
     # Insert user details into boomlet table
     cursor = cnxn.cursor()
-    insert_query = f"INSERT INTO boomlet (full_name, purpose, number) VALUES ('{full_name}', '{purpose}', '{number}')"
+    insert_query = f"INSERT INTO users (full_name, purpose, number) VALUES ('{full_name}', '{purpose}', '{number}')"
     cursor.execute(insert_query)
     cnxn.commit()
 
@@ -43,7 +43,7 @@ def submit():
 def database():
     # Select all records from boomlet table
     cursor = cnxn.cursor()
-    select_query = "SELECT * FROM boomlet"
+    select_query = "SELECT * FROM users"
     cursor.execute(select_query)
     rows = cursor.fetchall()
 
