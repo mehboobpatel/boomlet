@@ -1,5 +1,8 @@
 from flask import Flask, render_template, request
 import pyodbc
+from gtts import gTTS
+import os
+import subprocess
 
 app = Flask(__name__)
 
