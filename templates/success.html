@@ -3,7 +3,7 @@
 <head>
     <title>Visitor Registration Form</title>
 </head>
-<body>
+<body onload="playAudio()">
     <h1>Thank you for visiting!</h1>
     <p>Your details:</p>
     <ul>
@@ -11,10 +11,15 @@
         <li>Phone Number: {{ number }}</li>
         <li>Purpose of Visit: {{ purpose }}</li>
     </ul>
-    <audio controls autoplay>
-        <audio controls autoplay>
-            <source src="{{ url_for('static', filename='../static/' + full_name + '.mp3') }}" type="audio/mp3">
-            Your browser does not support the audio element.        
+    <audio id="audio">
+        <source src="{{ url_for('static', filename='../static/' + full_name + '.mp3') }}" type="audio/mp3">
+        Your browser does not support the audio element.        
     </audio>
+    <script>
+        function playAudio() {
+            var audio = document.getElementById("audio");
+            audio.play();
+        }
+    </script>
 </body>
 </html>
