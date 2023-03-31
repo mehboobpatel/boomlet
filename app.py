@@ -1,6 +1,4 @@
 from flask import Flask, render_template, request
-from gtts import gTTS
-import os
 import pyodbc
 
 app = Flask(__name__)
@@ -44,9 +42,9 @@ def database():
     cursor = cnxn.cursor()
     select_query = "SELECT * FROM boomlet"
     cursor.execute(select_query)
-    records = cursor.fetchall()
+    rows = cursor.fetchall()
 
-    return render_template('database.html', records=records)
+    return render_template('database.html', rows=rows)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5500)
