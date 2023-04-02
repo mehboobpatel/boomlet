@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_file, Response
 import pyodbc
 from gtts import gTTS
 import os
@@ -35,9 +35,23 @@ def submit():
 
     # Generate audio file using gTTS
     tts = gTTS(welcome_message)
-    tts.save(f"static/{full_name}.mp3")
+    audio_file = f"static/{full_name}.mp3"
+    tts.save(audio_file)
 
-    return render_template('success.html', full_name=full_name, purpose=purpose, number=number)
+    def generate():
+        with open(audio_file, 'rb') as f:
+            data = f.read(1024)
+            while data:
+                yield data
+                data = f.read(1024)
+
+    # Return audio file and play it automatically on iOS Safari browser
+    headers = {
+        'Content-Disposition': f'inline; filename="{full_name}.mp3"',
+        'Cache-Control': 'no-cache',
+        'X-Accel-Redirect': f'/audio/{full_name}.mp3'
+    }
+    return Response(generate(), headers=headers, mimetype='audio/mp3')
 
 @app.route('/database', methods=['GET'])
 def database():
