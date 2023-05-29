@@ -29,6 +29,9 @@ jobs:
       
       - name: Upgrade PIP
         run: pip install --upgrade pip
+        
+      - name: Install dependencies
+        run: pip install playsound==1.3.0
 
       - name: Install dependencies
         run: pip install -r requirements.txt
