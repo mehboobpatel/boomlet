@@ -32,8 +32,8 @@ jobs:
         
         #Adding the below commands to run setup tools since getting error on playsound 
         #Error: raise OSError('could not get source code')
-      - name: Install Setup Tools
-        run: pip install wheel setuptools 
+     # - name: Install Setup Tools commenting out since added in requirements.txt
+     #   run: pip install wheel setuptools 
         
         
       - name: Install dependencies
